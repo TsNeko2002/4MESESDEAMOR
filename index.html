@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversario Mi Amor | BCode</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+
+    <style>
+        .modal {
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: #1a1a1a;
+            color: #f5f5f5;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            text-align: justify;
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .modal-message {
+            white-space: pre-wrap;
+            font-size: 1.1rem;
+            margin-top: 20px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Reproductor de música -->
+    <div class="audio-controls">
+        <button id="togglePlay">▶️</button>
+        <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1" />
+        <audio id="audioAria" src="audio/musica.mp3" loop></audio>
+    </div>
+
+    <div class="decoration-container" id="decoration-container"></div>
+
+    <div class="scroll-down" id="scrollDown">
+        <svg class="icon" viewBox="0 0 24 24">
+            <path d="M6 9l6 6 6-6"/>
+        </svg>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>4 meses, un amor que solo sabe crecer</h1>
+            <div class="subtitle">Tú eres el regalo más bonito que me dio la vida</div>
+
+            <button class="btn-surprise" id="btnSurprise">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 110-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 100-5C13 2 12 7 12 7z"/>
+                </svg>
+                UN DETALLE DE AMOR SOLO PARA TI
+            </button>
+        </header>
+
+        <section class="counter-section">
+            <h2 class="counter-title">Nuestro Tiempo Juntos</h2>
+            <div class="counter-container">
+                <div class="counter-item">
+                    <div class="counter-value" id="years">3</div>
+                    <div class="counter-label">Años</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-value" id="months">1</div>
+                    <div class="counter-label">Mes</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-value" id="days">0</div>
+                    <div class="counter-label">Días</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-value" id="hours">00</div>
+                    <div class="counter-label">Horas</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-value" id="minutes">00</div>
+                    <div class="counter-label">Minutos</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-value" id="seconds">00</div>
+                    <div class="counter-label">Segundos</div>
+                </div>
+            </div>
+
+            <div class="time-display">
+                <p>En este preciso instante:</p>
+                <div class="current-time">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M3 5h18v14H3zM16 3v2M8 3v2M3 9h18M12 15h2v2h-2z"/>
+                    </svg>
+                    <span id="current-date">20 de junio de 2024</span>
+                    &nbsp;&nbsp;&nbsp;
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <span id="current-time">00:00:00</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="signature">Con todo mi amor, hoy y siempre</div>
+    </div>
+
+    <div class="modal" id="surpriseModal">
+        <div class="modal-hearts" id="modalHearts"></div>
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2 class="modal-title">Para Ti, Mi Amor</h2>
+            <p class="modal-message">
+                Hoy se cumplen cuatro meses desde que comenzó nuestra historia. Cuatro meses desde que esas miradas que intercambiábamos en el trabajo dejaron de ser casualidad para convertirse en destino. Cuatro meses desde que te invité a salir por primera vez, con nervios, con dudas, pero también con muchas ganas de conocerte más. Y qué suerte la mía, porque desde ese momento no dejo de agradecer por cada instante a tu lado.
+
+                Al principio, solo veía a una chica tierna, que renegaba con gracia y me hacía sonreír sin que me diera cuenta. Pero bastaron unas cuantas miradas para que tus ojos empezaran a distraerme de todo. No podía dejar de perderme en ellos. Y mientras más te conocía, más me gustabas. Fue Hilary quien nos ayudó a dar ese empujón, y gracias a eso, hoy estamos acá, celebrando algo que es mucho más que una relación: estamos celebrando un amor que crece cada día.
+
+                Tú eres única, y no lo digo solo porque seas mi pareja. Lo digo porque nadie me ha hecho sentir como tú. Me encantas por dentro y por fuera. Me enamoran tus ojos, tu forma de ser, tu personalidad fuerte pero tierna, tu forma de ver la vida con esperanza, tu fidelidad, tu cariño, tus enojos graciosos, tus ocurrencias espontáneas. Amo cuando actuamos como niños, cuando hablamos como si fuéramos los únicos en el mundo. Amo cómo me tratas, cómo me cuidas y cómo haces que todo sea especial.
+
+                La distancia a veces se siente, pero no es más grande que nuestras ganas. No estamos tan lejos, pero lo suficiente para que cada viaje, cada encuentro, se vuelva inolvidable. Y lo valoro tanto, amor… porque tú también has venido a mí, porque nadie había hecho eso por mí antes. Porque nuestros encuentros tienen sabor a esfuerzo, a compromiso, a amor verdadero. Y eso no se compra ni se encuentra todos los días.
+
+                Gracias por estar. Gracias por quedarte. Gracias por soñar conmigo, por planear un futuro juntos, por hablar de nuestras mellizas y de ese perro que corre en nuestra casa. Por construir en tu cabeza el mismo hogar que yo imagino contigo. Gracias por no rendirte, por luchar por lo nuestro, por seguir creyendo en nosotros.
+
+                Eres fuerte, valiente, hermosa por dentro y por fuera. Aunque digas que eres una bebé, para mí eres una guerrera. Pero aún así, quiero cuidarte, protegerte y darte todo lo que mereces, porque aunque sé que puedes sola… quiero ser yo quien esté contigo.
+
+                Amor mío, estos cuatro meses son solo el inicio de una vida que quiero construir a tu lado. No me imagino este camino con nadie más. Porque contigo soy yo mismo, sin miedo. Porque contigo soy mejor. Porque tú me haces sentir en casa, en paz, en el lugar correcto.
+
+                Te amo, Carla. Gracias por existir.
+                Gracias por elegirme.
+                Gracias por hacer que este amor no se desgaste, sino que solo crezca.
+
+                Hoy, mañana y siempre,
+                te elijo a ti.
+
+                Con todo mi amor,
+                 Sebastian
+            </p>
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
